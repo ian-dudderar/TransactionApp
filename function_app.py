@@ -9,6 +9,8 @@ import json
 from azure.storage.blob import BlobServiceClient
 from datetime import datetime
 
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
 
 credential = DefaultAzureCredential()
 key_vault_url = os.environ.get("KEY_VAULT_URL")
@@ -33,7 +35,6 @@ def fix_pem_format(pem_string: str, pem_type: str) -> str:
     return f"{header}\n{body_wrapped}\n{footer}"
 
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
 @app.route(route="transactions")
 def transactions(req: func.HttpRequest) -> func.HttpResponse:
