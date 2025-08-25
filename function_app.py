@@ -5,7 +5,6 @@ from azure.keyvault.secrets import SecretClient
 import os
 import requests
 import tempfile
-import ssl
 import json
 from azure.storage.blob import BlobServiceClient
 from datetime import datetime
