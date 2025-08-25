@@ -39,8 +39,6 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 @app.route(route="transactions")
 def transactions(req: func.HttpRequest) -> func.HttpResponse:
 
-    
-
     logging.info('Python HTTP trigger function processed a request.')
 
     cert_pem = secret_client.get_secret("cert-pem").value
@@ -61,8 +59,8 @@ def transactions(req: func.HttpRequest) -> func.HttpResponse:
     key_path = key_file.name
 
 
-    account_id = os.environ.get("ACCOUNT_ID")
-    access_token = os.environ.get("ACCESS_TOKEN")
+    account_id = os.environ.get("TELLER_ACCOUNT_ID")
+    access_token = os.environ.get("TELLER_ACCESS_TOKEN")
 
     # from_id = 'txn_pfot8s9e1ma7j377n2001'
 
