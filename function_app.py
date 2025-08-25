@@ -94,7 +94,6 @@ def transactions(req: func.HttpRequest) -> func.HttpResponse:
 
         connection_string = os.environ["STORAGE_ACCOUNT_CONNECTION"]
         container_name = "bronze"
-        # blob_name = "data_test.json"
 
         # Create filename with current date (e.g. data_2025-08-06.json)
         today_str = datetime.now().strftime("%Y-%m-%d")
